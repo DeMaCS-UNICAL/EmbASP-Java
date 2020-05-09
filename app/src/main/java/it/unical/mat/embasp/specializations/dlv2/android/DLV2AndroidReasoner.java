@@ -3,17 +3,11 @@ package it.unical.mat.embasp.specializations.dlv2.android;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
+import it.unical.mat.embasp.specializations.dlv.android.DLVAndroidReasoner;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.concurrent.TimeUnit;
-
-import static it.unical.mat.embasp.specializations.dlv.android.DLVAndroidReasoner.ACTION_SOLVE;
-import static it.unical.mat.embasp.specializations.dlv.android.DLVAndroidReasoner.FILES;
-import static it.unical.mat.embasp.specializations.dlv.android.DLVAndroidReasoner.OPTION;
-import static it.unical.mat.embasp.specializations.dlv.android.DLVAndroidReasoner.PROGRAM;
-import static it.unical.mat.embasp.specializations.dlv.android.DLVAndroidReasoner.RESULT_NOTIFICATION;
-import static it.unical.mat.embasp.specializations.dlv.android.DLVAndroidReasoner.SOLVER_RESULT;
 
 public class DLV2AndroidReasoner extends IntentService {
 
@@ -32,7 +26,7 @@ public class DLV2AndroidReasoner extends IntentService {
         Log.i("DLV2",(intent!=null)+"");
         if (intent != null) {
             final String action = intent.getAction();
-            if (ACTION_SOLVE.equals(action)) {
+            if (DLVAndroidReasoner.ACTION_SOLVE.equals(action)) {
                 //get a String with PROGRAM tag that indentify program String
                 //get a String with OPTION tag that indentify options String
                 //call the abstract method that handle a specific solve action

@@ -48,14 +48,12 @@ public class IDLVParserBaseVisitorImplementation extends IDLVParserBaseVisitor<V
 
     @Override
     public Void visitPredicate_atom(IDLVParser.Predicate_atomContext ctx) {
-        System.out.println("aggiungo " + ctx.getText());
         modelCurrentlyBeingVisited.getAtomsAsStringList().add(ctx.getText());
         return null;
     }
 
     @Override
     public Void visitMinimal_model(IDLVParser.Minimal_modelContext ctx) {
-        System.out.println("Creo modello");
         modelCurrentlyBeingVisited = new MinimalModel(new HashSet<String>());
         models.addMinimalModel(modelCurrentlyBeingVisited);
         return visitChildren(ctx);

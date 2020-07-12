@@ -33,6 +33,7 @@ public class DatalogParser extends DatalogGrammarBaseVisitor<Void> {
                 visitor.visit(parser.output());
             }
         }
+
         return termList.toArray(new String[termList.size()]);
     }
 

@@ -35,6 +35,11 @@ public class IDLVDesktopServiceTest {
             InputProgram testInputProgram = new DatalogInputProgram();
             testInputProgram.addProgram("path(X,Y) :- edge(X,Y).");
             testInputProgram.addProgram("path(X,Y) :- path(X,Z), path(Z,Y). ");
+            testInputProgram.addObjectInput(o1);
+            testInputProgram.addObjectInput(o2);
+            testInputProgram.addObjectInput(o3);
+            testInputProgram.addObjectInput(o4);
+            testInputProgram.addObjectInput(o5);
 
             testHandler.addProgram(testInputProgram);
             DatalogMapper.getInstance().registerClass(Path.class);

@@ -1,38 +1,56 @@
-plugins {
-	id 'antlr'
-	id 'java'
-}
+apply plugin: 'com.android.library'
 
-sourceSets {
-	main {
-		java {
-			srcDir 'src/main/java'
-			exclude 'it/unical/mat/embasp/platforms/android',
-				'it/unical/mat/embasp/specializations/dlv/android',
-                                'it/unical/mat/embasp/specializations/dlv2/android',
-				'it/unical/mat/embasp/specializations/solver_planning_domains/android',
-				'AndroidManifest.xml'
-		}
-	}
-}
-
-repositories {
-	mavenCentral()
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "embASP.aar"
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets {
+        main {
+            java {
+                exclude 'it/unical/mat/embasp/platforms/desktop',
+                        'it/unical/mat/embasp/specializations/clingo/desktop',
+                        'it/unical/mat/embasp/specializations/dlv/desktop',
+                        'it/unical/mat/embasp/specializations/dlv2/desktop',
+                        'it/unical/mat/embasp/specializations/dlvhex/desktop',
+                        'it/unical/mat/embasp/specializations/solver_planning_domains/desktop'
+            }
+        }
+        test {
+            java {
+                exclude 'it/'
+            }
+        }
+    }
 }
 
 dependencies {
-	antlr 'org.antlr:antlr4-runtime:4.7.2'
-	testCompile("junit:junit:4.12")
-	testCompile("org.junit.jupiter:junit-jupiter-api:5.2.0")
-   	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.2.0")
-}
-
-jar{
-	archiveName 'embASP.jar'
-	
-	from {
-		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-	}
-
-	exclude 'resources/'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

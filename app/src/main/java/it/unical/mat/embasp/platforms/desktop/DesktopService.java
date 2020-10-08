@@ -1,3 +1,9 @@
+/*
+ * August 25, 2020 Fixed hanging solver due to buffer not read
+ * (Copyright for this change in method startSync (c) Siemens Aktiengesellschaft Oesterreich, 2020)
+ *
+ * SPDX-License-Identifier: MIT
+ */
 package it.unical.mat.embasp.platforms.desktop;
 
 import java.io.BufferedReader;
@@ -116,14 +122,6 @@ public abstract class DesktopService implements Service {
 			
 			final Process solver_process = Runtime.getRuntime().exec(stringBuffer.toString());
 			
-			if(!final_program.isEmpty()) {
-				final PrintWriter writer = new PrintWriter(solver_process.getOutputStream());
-				writer.println(final_program);
-				if (writer != null)
-					writer.close();
-				solver_process.waitFor();
-			}
-			
 			Thread threadOutput=new Thread() {
 				@Override
 				public void run() {
@@ -142,7 +140,6 @@ public abstract class DesktopService implements Service {
 				}
 			};
 			threadOutput.start();
-			threadOutput.join();
 			
 			Thread threadError = new Thread() {
 				@Override
@@ -162,6 +159,16 @@ public abstract class DesktopService implements Service {
 				}
 			};
 			threadError.start();
+
+			if(!final_program.isEmpty()) {
+				final PrintWriter writer = new PrintWriter(solver_process.getOutputStream());
+				writer.println(final_program);
+				if (writer != null)
+					writer.close();
+				solver_process.waitFor();
+			}
+
+			threadOutput.join();
 			threadError.join();
 
 			final long stopTime = System.nanoTime();

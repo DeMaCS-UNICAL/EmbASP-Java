@@ -24,9 +24,7 @@ public class IDLVDesktopService extends DesktopService {
 
     @Override
     public void startAsync(final Callback callback, final List<InputProgram> programs, final List<OptionDescriptor> options) {
-        ArrayList<OptionDescriptor> newOptions = new ArrayList<>(options);
-        newOptions.add(new OptionDescriptor("--t"));
-        super.startAsync(callback, programs, newOptions);
+        super.startAsync(callback, programs, options);
     }
 
     @Override

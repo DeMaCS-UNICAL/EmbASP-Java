@@ -17,7 +17,7 @@ public class InputProgram {
 	/** Creates a new programs , setting space as default separator */
 	public InputProgram() {
 		init();
-		separator = " ";
+		separator = System.lineSeparator();
 	}
 
 	/**

@@ -29,6 +29,7 @@ dependencies {
 
 jar{
 	archiveName 'embASP.jar'
+	archiveVersion =  '7.5.0'
 	
 	from {
 		configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }

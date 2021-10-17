@@ -23,4 +23,6 @@ jobs:
         distribution: 'adopt'
         cache: gradle
     - name: Build with Gradle
-      run: gradle build
+      run: |
+        cd app
+        gradle build

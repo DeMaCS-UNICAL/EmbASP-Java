@@ -1,5 +1,4 @@
-package it.unical.mat.parsers.asp.dlv2;
-
+// Generated from /home/francesco/Scrivania/embasp/EmbASP-antlr-grammars/dlv2/DLV2Parser.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class DLV2Parser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.7", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -23,19 +22,28 @@ public class DLV2Parser extends Parser {
 	public static final int
 		RULE_answer_set = 0, RULE_cost = 1, RULE_level = 2, RULE_model = 3, RULE_output = 4, 
 		RULE_predicate_atom = 5, RULE_term = 6;
-	public static final String[] ruleNames = {
-		"answer_set", "cost", "level", "model", "output", "predicate_atom", "term"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"answer_set", "cost", "level", "model", "output", "predicate_atom", "term"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
 
-	private static final String[] _LITERAL_NAMES = {
-		null, "'{'", null, null, null, "'@'", null, null, null, "','", null, null, 
-		"'}'", null, "'('", "')'"
-	};
-	private static final String[] _SYMBOLIC_NAMES = {
-		null, "START", "COST_LABEL", "ANY", "IGNORE", "AT", "INTEGER", "NEW_LINE", 
-		"BLANK_SPACE", "COMMA", "INTEGER_CONSTANT", "IDENTIFIER", "MODEL_END", 
-		"STRING_CONSTANT", "TERMS_BEGIN", "TERMS_END", "WHITE_SPACE"
-	};
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, "'{'", null, null, null, "'@'", null, null, null, "','", null, 
+			null, "'}'", null, "'('", "')'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "START", "COST_LABEL", "ANY", "IGNORE", "AT", "INTEGER", "NEW_LINE", 
+			"BLANK_SPACE", "COMMA", "INTEGER_CONSTANT", "IDENTIFIER", "MODEL_END", 
+			"STRING_CONSTANT", "TERMS_BEGIN", "TERMS_END", "WHITE_SPACE"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -85,6 +93,7 @@ public class DLV2Parser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+
 	public static class Answer_setContext extends ParserRuleContext {
 		public TerminalNode START() { return getToken(DLV2Parser.START, 0); }
 		public ModelContext model() {
@@ -97,6 +106,14 @@ public class DLV2Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_answer_set; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).enterAnswer_set(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).exitAnswer_set(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DLV2ParserVisitor ) return ((DLV2ParserVisitor<? extends T>)visitor).visitAnswer_set(this);
@@ -151,6 +168,14 @@ public class DLV2Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cost; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).enterCost(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).exitCost(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DLV2ParserVisitor ) return ((DLV2ParserVisitor<? extends T>)visitor).visitCost(this);
@@ -207,6 +232,14 @@ public class DLV2Parser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_level; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).enterLevel(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).exitLevel(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DLV2ParserVisitor ) return ((DLV2ParserVisitor<? extends T>)visitor).visitLevel(this);
 			else return visitor.visitChildren(this);
@@ -254,6 +287,14 @@ public class DLV2Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_model; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).enterModel(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).exitModel(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DLV2ParserVisitor ) return ((DLV2ParserVisitor<? extends T>)visitor).visitModel(this);
@@ -321,6 +362,14 @@ public class DLV2Parser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_output; }
 		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).enterOutput(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).exitOutput(this);
+		}
+		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DLV2ParserVisitor ) return ((DLV2ParserVisitor<? extends T>)visitor).visitOutput(this);
 			else return visitor.visitChildren(this);
@@ -379,6 +428,14 @@ public class DLV2Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_predicate_atom; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).enterPredicate_atom(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).exitPredicate_atom(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DLV2ParserVisitor ) return ((DLV2ParserVisitor<? extends T>)visitor).visitPredicate_atom(this);
@@ -449,6 +506,14 @@ public class DLV2Parser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_term; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).enterTerm(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DLV2ParserListener ) ((DLV2ParserListener)listener).exitTerm(this);
+		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DLV2ParserVisitor ) return ((DLV2ParserVisitor<? extends T>)visitor).visitTerm(this);

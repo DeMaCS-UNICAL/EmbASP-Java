@@ -1,5 +1,4 @@
-package it.unical.mat.parsers.asp.dlv2;
-
+// Generated from /home/francesco/Scrivania/embasp/EmbASP-antlr-grammars/dlv2/DLV2Parser.g4 by ANTLR 4.9.2
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
